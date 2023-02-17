@@ -85,9 +85,9 @@
               <div class="col-md-6">
                 <label for="validationCustom04" class="form-label">Sexo</label>
                     <select class="form-select" id="sexo" required>
-                      <option selected disabled value="">Elija...</option>
-                      <option>Hombre</option>
-                      <option>Mujer</option>
+                      <option selected disabled value="setGender">Elija...</option>
+                      <option value="hombre">Hombre</option>
+                      <option value="mujer">Mujer</option>
                     </select>
                   <div class="invalid-feedback">
                     Por favor seleccione una opción.
@@ -98,10 +98,12 @@
               <div class="col-md-6">
                 <label for="validationCustom04" class="form-label">Nivel de actividad</label>
                 <select class="form-select" id="actividad" required>
-                  <option selected disabled value="">Elija...</option>
-                  <option>Sedentaria</option>
-                  <option>Moderada</option>
-                  <option>Intensa</option>
+                  <option selected disabled value="setAct">Elija...</option>
+                  <option value="sedentaria">Sedentaria</option>
+                  <option value="muyLigera">Muy ligera</option>
+                  <option value="ligera">Ligera</option>
+                  <option value="moderada">Moderada</option>
+                  <option value="intensa">Intensa</option>
                 </select>
                 <div class="invalid-feedback">
                   Por favor rellene este campo.
@@ -141,7 +143,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-            <button type="submit" class="btn btn-primary">Guardar cliente</button>
+            <button type="submit" id="guardar" class="btn btn-primary">Guardar cliente</button>
           </div>
             
           </form>
