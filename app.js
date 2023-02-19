@@ -1,23 +1,23 @@
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function () {
-    'use strict'
-  
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.querySelectorAll('.needs-validation')
-  
-    // Loop over them and prevent submission
-    Array.prototype.slice.call(forms)
-      .forEach(function (form) {
-        form.addEventListener('submit', function (event) {
-          if (!form.checkValidity()) {
-            event.preventDefault()
-            event.stopPropagation()
-          }
-  
-          form.classList.add('was-validated')
-        }, false)
-      })
-  })()
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
 
 
 var plantilla = document.querySelector("template")
@@ -83,8 +83,8 @@ if(cliente.sexo === "hombre"){
     var GER = GET*1.9
   }
  }
- nuevaFila.querySelector(".getKcal").textContent = GET
- nuevaFila.querySelector(".gerKcal").textContent = GER
+ nuevaFila.querySelector(".getKcal").textContent = Math.floor(GET)
+ nuevaFila.querySelector(".gerKcal").textContent =  Math.floor(GER)
 
   tabla.appendChild(nuevaFila)
 }

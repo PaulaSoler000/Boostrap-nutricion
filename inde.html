@@ -65,7 +65,7 @@
         </div>
         <div class="modal-body">
           
-          <form  class="needs-validation" novalidate>
+          <form  class="needs-validation" id="formu" novalidate>
             <div class="md-3">
               <label for="validationCustom01" class="form-label">Nombre</label>
               <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required>
@@ -83,22 +83,21 @@
 
             <div class="row g-3">
               <div class="col-md-6">
-                <label for="validationCustom04" class="form-label">Sexo</label>
-                    <select class="form-select" id="sexo" required>
-                      <option selected disabled value="setGender">Elija...</option>
-                      <option value="hombre">Hombre</option>
-                      <option value="mujer">Mujer</option>
-                    </select>
-                  <div class="invalid-feedback">
-                    Por favor seleccione una opción.
-                  </div>
-                
+                <label for="validationCustom03" class="form-label">Sexo</label>
+                <select  class="form-select" name="sexo" id="sexo"required>
+                  <option selected disabled value="">Elija...</option>
+                  <option value="hombre">Hombre</option>
+                    <option value="mujer">Mujer</option>
+                </select>
+                <div class="invalid-feedback">
+                  Por favor seleccione una opción.
+                </div>
               </div>
 
               <div class="col-md-6">
                 <label for="validationCustom04" class="form-label">Nivel de actividad</label>
-                <select class="form-select" id="actividad" required>
-                  <option selected disabled value="setAct">Elija...</option>
+                <select class="form-select" name="actividad" id="actividad" required>
+                  <option selected disabled value="">Elija...</option>
                   <option value="sedentaria">Sedentaria</option>
                   <option value="muyLigera">Muy ligera</option>
                   <option value="ligera">Ligera</option>
@@ -123,7 +122,7 @@
               </div>
 
               <div class="col-md-4">
-                <label for="validationCustom05" class="form-label">Peso(kg)</label>
+                <label for="validationCustom06" class="form-label">Peso(kg)</label>
                 <input type="number" class="form-control" id="peso" required>
                 <div class="invalid-feedback">
                   Por favor rellene este campo.
@@ -131,7 +130,7 @@
               </div>
 
               <div class="col-md-4">
-                <label for="validationCustom05" class="form-label">Altura(cm)</label>
+                <label for="validationCustom07" class="form-label">Altura(cm)</label>
                 <input type="number" class="form-control" id="altura" required>
                 <div class="invalid-feedback">
                   Por favor rellene este campo.
