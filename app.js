@@ -83,11 +83,22 @@ if(cliente.sexo === "hombre"){
     var GER = GET*1.9
   }
  }
- nuevaFila.querySelector(".getKcal").textContent = Math.floor(GET)
- nuevaFila.querySelector(".gerKcal").textContent =  Math.floor(GER)
+ 
 
+ if ( !P || !T || !E) {
+  nuevaFila.querySelector(".getKcal").textContent = null
+  nuevaFila.querySelector(".gerKcal").textContent = null
+}else{
+  nuevaFila.querySelector(".getKcal").textContent = Math.floor(GET)
+  nuevaFila.querySelector(".gerKcal").textContent =  Math.floor(GER)
   tabla.appendChild(nuevaFila)
+  document.querySelector("form").reset()
 }
+
+ 
+}
+
+
 
 document.querySelector("form").addEventListener("submit",
   (ev)=>{
