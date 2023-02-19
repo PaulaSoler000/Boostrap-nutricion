@@ -86,13 +86,6 @@ if(cliente.sexo === "hombre"){
  nuevaFila.querySelector(".getKcal").textContent = GET
  nuevaFila.querySelector(".gerKcal").textContent = GER
 
-
-
-
-
-
-
-
   tabla.appendChild(nuevaFila)
 }
 
@@ -108,60 +101,73 @@ document.querySelector("form").addEventListener("submit",
 
 const cargarBtn = document.querySelector("#cargarBtn");
 
-cargarBtn.onclick = cargarDatos()
+cargarBtn.addEventListener("click",cargarDatos)
 
 function cargarDatos(){
-fetch("https://raw.githubusercontent.com/FRomero999/ExamenDIW2022/main/clientes.json")
-.then(response=> response.json())
-.then(data=>{ 
+  const url ="https://raw.githubusercontent.com/FRomero999/ExamenDIW2022/main/clientes.json"
+fetch(url)
+.then(response => response.json())
+.then(data =>{ 
 
-  const tabla= document.querySelector("#tabla");
+  const tabla= document.getElementById('tabla');
+  const tbody = document.querySelector('tbody');
+ 
 
   data.forEach(item =>{
-      const fila= document.querySelector("#fila");
 
+    let nuevaFila = plantilla.content.cloneNode(true)
+    nuevaFila.querySelector(".nombre").textContent = item.nombre
+    nuevaFila.querySelector(".apellido").textContent = item.apellidos
+    nuevaFila.querySelector(".sexo").textContent = item.sexo
+    nuevaFila.querySelector(".edad").textContent = item.edad
+    nuevaFila.querySelector(".peso").textContent = item.peso
+    nuevaFila.querySelector(".altura").textContent = item.altura
+    nuevaFila.querySelector(".actividad").textContent = item.actividad
 
-    const nombre= document.querySelector(".nombre");
-    nombre.textContent = item.nombre;
-    fila.appendChild(nombre);
+    //GET
 
-    console.log(nombre);
+    var P = item.peso
+    var T = item.altura
+    var E = item.edad
 
-    const apellido= document.querySelector(".apellido");
-    apellido.textContent= item.apellidos;
-    fila.appendChild(apellido);
+    if(item.sexo === "hombre"){  
 
-    const sexo= document.querySelector(".sexo");
-    sexo.textContent= item.sexo;
-    fila.appendChild(sexo);
+    var GET = 66.473+(13.751*P)+(5.0033*T)-(6.755*E);
 
-    const edad= document.querySelector(".edad");
-    edad.textContent= item.edad;
-    fila.appendChild(edad);
+    //GER
+      if(item.actividad === "sedentaria"){
+        var GER = GET*1.3
+      }else if(item.actividad === "muyLigera"){
+        var GER = GET*1.35
+      }else if(item.actividad === "ligera"){
+        var GER = GET*1.6
+      }else if(item.actividad === "moderada"){
+        var GER = GET*1.7
+      }else{
+        var GER = GET*2.1
+      }
+    }else{
 
-    const altura= document.querySelector(".altura");
-    altura.textContent= item.altura;
-    fila.appendChild(altura);
+      var GET = 655.0955+(9.463*P)+(1.8496*T)-(4.6756*E)
 
-    const peso= document.querySelector(".peso");
-    peso.textContent= item.peso;
-    fila.appendChild(peso);
+      //GER
+      if(item.actividad === "sedentaria"){
+        var GER = GET*1.3
+      }else if(item.actividad === "muyLigera"){
+        var GER = GET*1.33
+      }else if(item.actividad === "ligera"){
+        var GER = GET*1.5
+      }else if(item.actividad === "moderada"){
+        var GER = GET*1.6
+      }else{
+        var GER = GET*1.9
+      }
+    }
+    nuevaFila.querySelector(".getKcal").textContent = Math.floor(GET)
+    nuevaFila.querySelector(".gerKcal").textContent = Math.floor(GER)
+  
+     tbody.appendChild(nuevaFila)
 
-    const actividad= document.querySelector(".actividad");
-    actividad.textContent= item.actividad;
-    fila.appendChild(actividad);
-
-    // const getKcal= document.querySelector(".getKcal");
-    // getKcal.textContent = ;
-    // fila.appendChild(getKcal)
-
-    // const gerKcal= document.querySelector(".gerKcal");
-    // gerKcal.textContent = ;
-    // fila.appendChild(gerKcal);
-
-    console.log(fila);
-
-    tabla.appendChild(fila);
   });
 });
 }
